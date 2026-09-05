@@ -2,16 +2,7 @@ import random
 import time
 
 def tarea_truncar_cadena():
-    print("\n--- TAREA: TRUNCADOR DE CADENAS ---")
-    print("¡Aquí está la tarea! 🧑‍💻")
-    print("Escribe una aplicación que le pida al usuario que ingrese una cadena de texto. Si la cadena del usuario tiene más de 10 caracteres, el programa la cortará y agregará '...' al final. De lo contrario, mostrará la cadena tal como está.\n")
-    print("¿Qué repasamos con esta tarea?")
-    print("- La capacidad de trabajar con cadenas de texto")
-    print("- El operador condicional if")
-    print("- La función len()")
-    print("- El corte de cadenas (slicing)\n")
-    print("Un consejo 💡: Puedes verificar la longitud de la cadena con la función len(). Si la cadena es demasiado larga, ¡usa el corte de cadenas [:10] para truncarla!\n")
-    
+    print("\n--- TRUNCADOR DE CADENAS ---")
     texto = input("Enter a string: ")
     
     if len(texto) > 10:
@@ -34,7 +25,7 @@ def tarea_diccionario():
     print("INSTRUCCIONES: Escribe palabras en mayúsculas o minúsculas.")
     for i in range(1, 6):
         print(f"\nConsulta {i} de 5")
-        word = input("Escribe una palabra que não entiendas: ").strip().upper()
+        word = input("Escribe una palabra que no entiendas: ").strip().upper()
 
         if word in meme_dict:
             print(f"--> Significado de '{word}': {meme_dict[word]}")
