@@ -1,34 +1,24 @@
 import random
 import time
 
-def tarea_vocabulario():
-    print("\n--- TAREA: JUEGO DE VOCABULARIO (INGLÉS - ESPAÑOL) ---")
-    eng_words = ['Hi', 'Bye', 'Task', 'Programm']
-    sp_words = ['Hola', 'Adiós', 'Tarea', 'Programa']
-    score = 0
-
-    mode = input("Elige un modo: 0 - añadir nuevas palabras, 1 - entrenamiento: \n")
-    while ((mode != '0') and (mode != '1')):
-        mode = input("Símbolo no válido. Elija 0 o 1. (0 añade nuevas palabras, mientras que 1 permite el entrenamiento) \n")
-
-    if mode == "1":
-        print("¡Traduce tantas palabras como puedas! ¡Tienes 10 intentos!")
-        for i in range(10):
-            number = random.randint(0, len(eng_words)-1)
-            print("Cómo deberíamos traducirlo " + eng_words[number])
-            if input() == sp_words[number]:
-                print("¡¡¡Genial!!!")
-                score += 1
-            else:
-                print("No, no del todo... La palabra correcta es - " + sp_words[number])
-        print(f"\n¡Entrenamiento finalizado! Tu puntuación final es: {score}/10")
+def tarea_truncar_cadena():
+    print("\n--- TAREA: TRUNCADOR DE CADENAS ---")
+    print("¡Aquí está la tarea! 🧑‍💻")
+    print("Escribe una aplicación que le pida al usuario que ingrese una cadena de texto. Si la cadena del usuario tiene más de 10 caracteres, el programa la cortará y agregará '...' al final. De lo contrario, mostrará la cadena tal como está.\n")
+    print("¿Qué repasamos con esta tarea?")
+    print("- La capacidad de trabajar con cadenas de texto")
+    print("- El operador condicional if")
+    print("- La función len()")
+    print("- El corte de cadenas (slicing)\n")
+    print("Un consejo 💡: Puedes verificar la longitud de la cadena con la función len(). Si la cadena es demasiado larga, ¡usa el corte de cadenas [:10] para truncarla!\n")
+    
+    texto = input("Enter a string: ")
+    
+    if len(texto) > 10:
+        resultado = texto[:10] + "..."
+        print(f"Resultado: {resultado}")
     else:
-        word = input("Escribe una palabra en español: ")
-        translate = input("Escriba la traducción de esta palabra en inglés: ")
-        if len(word) > 0 and len(translate) > 0:
-            sp_words.append(word)
-            eng_words.append(translate)
-            print("¡La palabra se ha añadido correctamente!")
+        print(f"Resultado: {texto}")
 
 def tarea_diccionario():
     print("\n--- TAREA 0: DICCIONARIO PARA MAYORES ---")
@@ -44,7 +34,7 @@ def tarea_diccionario():
     print("INSTRUCCIONES: Escribe palabras en mayúsculas o minúsculas.")
     for i in range(1, 6):
         print(f"\nConsulta {i} de 5")
-        word = input("Escribe una palabra que no entiendas: ").strip().upper()
+        word = input("Escribe una palabra que não entiendas: ").strip().upper()
 
         if word in meme_dict:
             print(f"--> Significado de '{word}': {meme_dict[word]}")
@@ -56,7 +46,6 @@ def tarea_edad():
     print("\n--- TAREA 1: CÁLCULO DE EDAD FUTURA ---")
     nombre = input("¿Cuál es tu nombre? ")
     
-    # Manejo de error por si ingresan texto en lugar de un número
     while True:
         try:
             edad = int(input("¿Cuántos años tienes? "))
@@ -99,7 +88,7 @@ def menu_principal():
         print("2. Corregir código de Edad Futura")
         print("3. Contador de Vocales")
         print("4. Análisis de la Variable X (Cálculo)")
-        print("5. Juego de Vocabulario (Inglés/Español)")
+        print("5. Truncador de Cadenas (Slicing)")
         print("6. Salir")
         print("=" * 45)
 
@@ -114,7 +103,7 @@ def menu_principal():
         elif opcion == "4":
             tarea_calculo_x()
         elif opcion == "5":
-            tarea_vocabulario()
+            tarea_truncar_cadena()
         elif opcion == "6":
             print("\n¡Gracias por usar el programa! Hasta luego.")
             break
