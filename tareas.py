@@ -1,4 +1,34 @@
+import random
 import time
+
+def tarea_vocabulario():
+    print("\n--- TAREA: JUEGO DE VOCABULARIO (INGLÉS - ESPAÑOL) ---")
+    eng_words = ['Hi', 'Bye', 'Task', 'Programm']
+    sp_words = ['Hola', 'Adiós', 'Tarea', 'Programa']
+    score = 0
+
+    mode = input("Elige un modo: 0 - añadir nuevas palabras, 1 - entrenamiento: \n")
+    while ((mode != '0') and (mode != '1')):
+        mode = input("Símbolo no válido. Elija 0 o 1. (0 añade nuevas palabras, mientras que 1 permite el entrenamiento) \n")
+
+    if mode == "1":
+        print("¡Traduce tantas palabras como puedas! ¡Tienes 10 intentos!")
+        for i in range(10):
+            number = random.randint(0, len(eng_words)-1)
+            print("Cómo deberíamos traducirlo " + eng_words[number])
+            if input() == sp_words[number]:
+                print("¡¡¡Genial!!!")
+                score += 1
+            else:
+                print("No, no del todo... La palabra correcta es - " + sp_words[number])
+        print(f"\n¡Entrenamiento finalizado! Tu puntuación final es: {score}/10")
+    else:
+        word = input("Escribe una palabra en español: ")
+        translate = input("Escriba la traducción de esta palabra en inglés: ")
+        if len(word) > 0 and len(translate) > 0:
+            sp_words.append(word)
+            eng_words.append(translate)
+            print("¡La palabra se ha añadido correctamente!")
 
 def tarea_diccionario():
     print("\n--- TAREA 0: DICCIONARIO PARA MAYORES ---")
@@ -63,16 +93,17 @@ def tarea_calculo_x():
 def menu_principal():
     while True:
         print("\n" + "=" * 45)
-        print("          MENÚ DE TAREAS EN PYTHON          ")
+        print("         MENÚ DE TAREAS EN PYTHON         ")
         print("=" * 45)
         print("1. Diccionario de Jerga Moderna (5 consultas)")
         print("2. Corregir código de Edad Futura")
         print("3. Contador de Vocales")
         print("4. Análisis de la Variable X (Cálculo)")
-        print("5. Salir")
+        print("5. Juego de Vocabulario (Inglés/Español)")
+        print("6. Salir")
         print("=" * 45)
 
-        opcion = input("¿Qué tarea quieres ver? (1-5): ").strip()
+        opcion = input("¿Qué tarea quieres ver? (1-6): ").strip()
 
         if opcion == "1":
             tarea_diccionario()
@@ -83,10 +114,12 @@ def menu_principal():
         elif opcion == "4":
             tarea_calculo_x()
         elif opcion == "5":
+            tarea_vocabulario()
+        elif opcion == "6":
             print("\n¡Gracias por usar el programa! Hasta luego.")
             break
         else:
-            print("\nOpción no válida. Por favor, ingresa un número entre 1 y 5.")
+            print("\nOpción no válida. Por favor, ingresa un número entre 1 y 6.")
         
         input("\n[Presiona ENTER para volver al menú principal]")
 
